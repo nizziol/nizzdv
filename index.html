@@ -24,7 +24,74 @@
   <a href="https://www.instagram.com/nizziol" target="_blank"><i class="fab fa-instagram"></i></a>
   <a href="https://discord.gg/t6Q3wZX6KQ" target="_blank"><i class="fab fa-discord"></i></a> 
       </div>
+<div class="music-container">
+  <div class="music-row">
+    <img src="files/ikona-muzyki.png" class="music-avatar" alt="cover" />
+
+    <div class="music-info">
+      <div class="music-title">∘₊✧───────────✧₊∘</div>
+
+      <div class="music-controls">
+        <input type="range" id="seekBar" value="0">
+        <button id="playPause"><i class="fas fa-play"></i></button>
+        <input type="range" id="volumeBar" min="0" max="1" step="0.01" value="0.1">
+      </div>
+
+      <div class="time">
+        <span id="startTime">00:00</span>
+        <span id="endTime">03:18</span>
+      </div>
+    </div>
+  </div>
+  <audio id="audio" src="files/stranger.mp3" autoplay></audio>
+</div>
+
     </div>
 </div>
 </body>
+<script>
+  const audio = document.getElementById('audio');
+  const playPauseBtn = document.getElementById('playPause');
+  const seekBar = document.getElementById('seekBar');
+  const volumeBar = document.getElementById('volumeBar');
+  const startTime = document.getElementById('startTime');
+  const endTime = document.getElementById('endTime');
+  audio.volume = 0.1;
+
+  audio.addEventListener('loadedmetadata', () => {
+    seekBar.max = audio.duration;
+    endTime.textContent = formatTime(audio.duration);
+  });
+
+  audio.addEventListener('timeupdate', () => {
+    seekBar.value = audio.currentTime;
+    startTime.textContent = formatTime(audio.currentTime);
+  });
+
+  seekBar.addEventListener('input', () => {
+    audio.currentTime = seekBar.value;
+  });
+
+  volumeBar.addEventListener('input', () => {
+    audio.volume = volumeBar.value;
+  });
+
+  playPauseBtn.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play();
+      playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+    } else {
+      audio.pause();
+      playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+    }
+  });
+
+  function formatTime(seconds) {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60).toString().padStart(2, '0');
+    return `${mins}:${secs}`;
+  }
+
+</script>
+
 </html>
