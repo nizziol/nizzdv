@@ -23,7 +23,11 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   width: 350px;
   text-align: center;
-  color: white;
+  color: white;  
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  position: relative;
 }
 
 .avatar {
@@ -212,13 +216,6 @@ body {
   text-shadow: 0 0 10px white;
 }
 
-.container {
-  opacity: 0;
-  transform: scale(0.6);
-  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
-  position: relative;
-}
-
 .container.hidden {
   visibility: hidden;
   pointer-events: none;
@@ -243,5 +240,31 @@ body {
   }
   100% {
     transform: scale(1);
+  }
+}
+@media (max-width: 600px) {
+  .container {
+    width: 90%;
+    padding: 1rem;
+  }
+
+  .music-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .music-controls {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .music-avatar {
+    width: 50px;
+    height: 50px;
   }
 }
