@@ -242,7 +242,7 @@ body {
     transform: scale(1);
   }
 }
-.view-counter {
+.counterapi {
   position: absolute;
   top: 15px;
   right: 15px;
@@ -256,18 +256,19 @@ body {
   color: white;
   font-weight: 600;
   text-shadow: 0 0 6px white;
-  font-family: 'Segoe UI Semibold', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
   z-index: 10;
 }
 
-
-.view-counter i {
-  color: white;
-  text-shadow: 0 0 8px white;
+.counterapi i {
+  display: inline-block; /* To często rozwiązuje problem z ikonami FA */
   font-size: 1rem;
+  color: white;
+  text-shadow: 0 0 6px white;
+  margin-right: 5px;
 }
-.view-counter span {
+
+.counterapi span {
   position: relative;
   top: -1px;
 }
