@@ -1,58 +1,64 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>nzz</title>
   <meta name="description" content="nizzdv">
   <meta name="author" content="nizziol">
   <link rel="icon" href="files/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>nzz</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://counterapi.com/c.js" async></script>
 </head>
 <body>
 <div id="introScreen">
   <div class="intro-text">141</div>
 </div>
+
 <div class="container hidden">
-    <div class="profile-card">
-      <img src="files/pfp.jpg" alt="Profilowe" class="avatar" />
-      <h1 class="nickname">nizziol</h1>
-      <div class="tags">
-        <span>#141</span>
-        <span>#8252</span>
+  <div class="counterapi" ns="nizzdv.pl" key="homepage" noCss="true" noIcon="true" noLink="true">
+    <i class="fas fa-eye"></i>
+    <span class="counter-value"></span>
+  </div>
+
+  <div class="profile-card">
+    <img src="files/pfp.jpg" alt="Profilowe" class="avatar">
+    <h1 class="nickname">nizziol</h1>
+    <div class="tags">
+      <span>#141</span>
+      <span>#8252</span>
+    </div>
+    <div class="location">📍 Poland</div>
+    
+    <div class="socials">
+      <a href="https://paypal.me/nizziol" target="_blank"><i class="fab fa-paypal"></i></a>
+      <a href="https://www.tiktok.com/@nizziol" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.instagram.com/nizziol" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://discord.gg/t6Q3wZX6KQ" target="_blank"><i class="fab fa-discord"></i></a> 
+    </div>
+
+    <div class="music-container">
+      <div class="music-row">
+        <img src="files/ikona-muzyki.png" class="music-avatar" alt="cover">
+        <div class="music-info">
+          <div class="music-title">∘₊✧───────────✧₊∘</div>
+          <div class="music-controls">
+            <input type="range" id="seekBar" value="0">
+            <button id="playPause"><i class="fas fa-play"></i></button>
+            <input type="range" id="volumeBar" min="0" max="1" step="0.01" value="0.1">
+          </div>
+          <div class="time">
+            <span id="startTime">00:00</span>
+            <span id="endTime">03:18</span>
+          </div>
+        </div>
       </div>
-      <div class="location">📍 Poland</div>
-      <div class="socials">
-  <a href="https://paypal.me/nizziol" target="_blank"><i class="fab fa-paypal"></i></a>
-  <a href="https://www.tiktok.com/@nizziol" target="_blank"><i class="fab fa-tiktok"></i></a>
-  <a href="https://www.instagram.com/nizziol" target="_blank"><i class="fab fa-instagram"></i></a>
-  <a href="https://discord.gg/t6Q3wZX6KQ" target="_blank"><i class="fab fa-discord"></i></a> 
-      </div>
-<div class="music-container">
-  <div class="music-row">
-    <img src="files/ikona-muzyki.png" class="music-avatar" alt="cover" />
-    <div class="music-info">
-      <div class="music-title">∘₊✧───────────✧₊∘</div>
-      <div class="music-controls">
-        <input type="range" id="seekBar" value="0">
-        <button id="playPause"><i class="fas fa-play"></i></button>
-        <input type="range" id="volumeBar" min="0" max="1" step="0.01" value="0.1">
-      </div>
-      <div class="time">
-        <span id="startTime">00:00</span>
-        <span id="endTime">03:18</span>
-      </div>
+      <audio id="audio" src="files/muzyka.mp3"></audio>
     </div>
   </div>
-   <audio id="audio" src="files/muzyka.mp3"></audio>
 </div>
-</div>
-<div class="view-counter">
-  <i class="fas fa-eye"></i>
-  <span id="visitCount">0</span>
-</div>
-</div>
-</body>
+
 <script src="main.js"></script>
+</body>
 </html>
