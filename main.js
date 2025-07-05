@@ -77,8 +77,3 @@ card.addEventListener('mousemove', (e) => {
 card.addEventListener('mouseleave', () => {
   card.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
 });
-fetch('https://api.countapi.xyz/update/nizzdv.pl/main/?amount=1')
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById('visitCount').textContent = data.value;
-  });
