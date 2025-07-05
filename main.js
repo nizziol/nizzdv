@@ -79,16 +79,31 @@ if (card) {
   });
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-  fetch('https://api.countapi.xyz/hit/nizzdv.pl/homepage')
-    .then(res => res.json())
-    .then(data => {
-      const viewCount = document.getElementById('viewCount');
-      if (viewCount) {
-        viewCount.textContent = data.value;
-      }
-    })
-    .catch(err => {
-      console.error('Błąd pobierania liczby odwiedzin:', err);
+const BIN_ID = '68694a078a456b7966bbd782';
+const API_KEY = '$2a$10$xixyIxMbZK4AgpYiNCFKMOKxXWII2waVrOTnUaASgilOYyr/fMOX6';
+
+fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
+  headers: {
+    'X-Master-Key': API_KEY
+  }
+})
+  .then(res => res.json())
+  .then(data => {
+    const views = data.record.views + 1;
+
+    // aktualizacja widoku na stronie
+    const viewCount = document.getElementById('viewCount');
+    if (viewCount) viewCount.textContent = views;
+
+    // aktualizacja licznika w JSONBin
+    return fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Master-Key': API_KEY,
+        'X-Bin-Versioning': 'false'
+      },
+      body: JSON.stringify({ views })
     });
-});
+  })
+  .catch(err => console.error('Błąd licznika:', err));
