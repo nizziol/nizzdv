@@ -219,7 +219,7 @@ body {
 .container.hidden {
   visibility: hidden;
   pointer-events: none;
-  position: absolute;
+  position: relative;
 }
 
 .container.show {
@@ -242,4 +242,32 @@ body {
     transform: scale(1);
   }
 }
+.view-counter {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: white;
+  font-weight: 600;
+  text-shadow: 0 0 6px white;
+  font-family: 'Segoe UI Semibold', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  z-index: 10;
+}
 
+
+.view-counter i {
+  color: white;
+  text-shadow: 0 0 8px white;
+  font-size: 1rem;
+}
+.view-counter span {
+  position: relative;
+  top: -1px;
+}
