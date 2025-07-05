@@ -77,3 +77,14 @@ card.addEventListener('mousemove', (e) => {
 card.addEventListener('mouseleave', () => {
   card.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
 });
+fetch('https://api.countapi.xyz/hit/nizzdv.pl/homepage')
+  .then(res => res.json())
+  .then(data => {
+    const viewCount = document.getElementById('viewCount');
+    if (viewCount) {
+      viewCount.textContent = data.value;
+    }
+  })
+  .catch(err => {
+    console.error('Błąd pobierania liczby odwiedzin:', err);
+  });
