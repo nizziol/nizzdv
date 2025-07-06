@@ -17,18 +17,73 @@ body {
 
 
 .container {
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 2rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  position: relative;
   width: 350px;
+  padding: 2rem;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 60px rgba(255, 255, 255, 0.15);
   text-align: center;
-  color: white;  
+  color: white;
   opacity: 0;
   transform: scale(0.6);
   transition: opacity 0.3s ease-out, transform 0.3s ease-out;
-  position: relative;
+  overflow: hidden;
 }
+.container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 30px;
+  background: radial-gradient(
+      circle at top left,
+      rgba(255, 255, 255, 0.4),
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at top right,
+      rgba(255, 255, 255, 0.35),
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(255, 255, 255, 0.3),
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(255, 255, 255, 0.35),
+      transparent 60%
+    ),
+    linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.1),
+      transparent 30%,
+      transparent 70%,
+      rgba(255, 255, 255, 0.1)
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.1),
+      transparent 30%,
+      transparent 70%,
+      rgba(255, 255, 255, 0.1)
+    );
+  mix-blend-mode: screen;
+  filter: blur(20px);
+  opacity: 0.6;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.container > * {
+  position: relative;
+  z-index: 1;
+}
+
 
 .avatar {
   width: 100px;
@@ -38,6 +93,11 @@ body {
   margin-bottom: 1rem;
   border: 2px solid #fff;
   box-shadow: 0 0 15px white;
+}
+.location i {
+  margin-right: 6px;
+  color: #fff;
+  text-shadow: 0 0 4px white;
 }
 
 .nickname {
@@ -241,34 +301,4 @@ body {
   100% {
     transform: scale(1);
   }
-}
-.counterapi {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  padding: 6px 12px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.9rem;
-  color: white;
-  font-weight: 600;
-  text-shadow: 0 0 6px white;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-  z-index: 10;
-}
-
-.counterapi i {
-  display: inline-block; /* To często rozwiązuje problem z ikonami FA */
-  font-size: 1rem;
-  color: white;
-  text-shadow: 0 0 6px white;
-  margin-right: 5px;
-}
-
-.counterapi span {
-  position: relative;
-  top: -1px;
 }
